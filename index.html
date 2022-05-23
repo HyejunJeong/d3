@@ -112,16 +112,6 @@
         function updateDataTable() {
             dataTable.update(data, data.columns)
         }
-//        function updatePC() {
-//            pc.update(data, "stress");
-//        }
-//        function updateSplom() {
-//            splom.update(data, "stress");
-//        }
-//        function updateRadarChart() {
-//            radar.update(data, "stress");
-//        }
-
         d3.csv("https://raw.githubusercontent.com/HyejunJeong/infovis_project/main/human_stress_detection_in_and_through_sleep.csv")
             .then(csvData => {
                 csvData.forEach(d => {
@@ -140,18 +130,15 @@
 
                 pc = new PC("#pc", data, ["snore_rate","resp_rate","body_temp","limb_move","blood_oxygen","eye_move","sleep_hours","heart_rate"]);
                 pc.initialize();
-//                updatePC();
             
                 splom = new ScatterplotMatrix("#splom", data, ["snore_rate","resp_rate","body_temp","limb_move","blood_oxygen","eye_move","sleep_hours","heart_rate"]);
                 splom.initialize();
-//                updateSplom();
             
                 dataTable = new DataTable("#data-table");
                 updateDataTable();
             
                 radar = new RadarChart("#radar", "#sc-tooltip", data, ["snore_rate","resp_rate","body_temp","limb_move","blood_oxygen","eye_move","sleep_hours","heart_rate"]);
                 radar.initialize();
-//                updateRadarChart();
             })
 
     </script>
